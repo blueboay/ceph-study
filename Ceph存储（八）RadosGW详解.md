@@ -188,7 +188,7 @@ Configuration saved to '/root/.s3cfg'
 上传对象命令格式。
 
 <pre>
-~]# s3cmd put <object path> s3://<bucket name>/<save path>
+~]# s3cmd put <object path> s3://&lt;bucket name&gt;/&lt;save path&gt;
 </pre>
 
 <pre>
@@ -209,13 +209,13 @@ Configuration saved to '/root/.s3cfg'
 格式如下。
 
 <pre>
-~]# s3cmd get s3://<bucket name>/<save path>
+~]# s3cmd get s3://&lt;bucket name&gt;/&lt;save path&gt;
 </pre>
 ### 查看对象
 查看指定bucket下所有文件。
 
 <pre>
-~]# s3cmd ls s3://<bucket name>
+~]# s3cmd ls s3://&gt;bucket name&gt;
 </pre>
 ## Swift接口访问测试
 关于Swfi接口测试不做过多介绍。Swift接口测试可以使用Python Swiftclient模块，可以使用下面命令进行安装。
