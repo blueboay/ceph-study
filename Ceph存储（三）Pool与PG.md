@@ -356,7 +356,7 @@ rule replicated_rule {
 
 <pre>
 &lt;bucket name&gt; &lt;name&gt; {
-……
+    ……
 }
 
 </pre>
