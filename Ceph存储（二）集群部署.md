@@ -219,6 +219,7 @@ ceph-deploy为部署集群的主要命令。
   * --cluster-network：new子命令的可用选项，可使用ceph-deploy new --help获取所有选项，其中--cluster-network为指定集群内部使用网络
   * --public-network：指定集群公用网络，也就是业务使用网络。
   * ceph-monitor-1：指定初始的集群的第一个monitor节点的主机名，网络必须可达。 
+
 创建集群生成的文件如下。 
 
 <pre>
