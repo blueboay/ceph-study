@@ -188,16 +188,13 @@ Configuration saved to '/root/.s3cfg'
 上传对象命令格式。
 
 <pre>
-~]# s3cmd put <object path> s3://&lt;bucket name&gt;/&lt;save path&gt;
-</pre>
-
-<pre>
+~]# s3cmd put &lt;object path&gt; s3://&lt;bucket name&gt;/&lt;save path&gt;
 ~]# s3cmd put ./ceph-release-1-1.el7.noarch.rpm s3://images/ceph-release-1-1.el7.noarch.rpm
 </pre>
   * put：代表上传对象。
-  * <object path>：需要上传的对象的路径。
-  * <buketc name>：需要上传到哪个Bucket。
-  * <save path>：保存的路径，可以有多层目录。
+  * &lt;object path&gt;：需要上传的对象的路径。
+  * &lt;buketc name&gt;：需要上传到哪个Bucket。
+  * &lt;save path&gt;：保存的路径，可以有多层目录。
 
 上传保存的时候指定目录，目录不存在会自行创建，如。
 
