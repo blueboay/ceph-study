@@ -59,7 +59,7 @@
 <td >monitor 
 </td></tr></tbody></table>
 ### 硬盘说明
-在ceph集群中。Administrators、Monitors、Managers和MDSs节点节点对服务器硬盘都没有要求，只要系统能正常运行即可。但OSD节点不一样，通常一个OSD就代表一块物理硬盘，作为分布式存储，OSD越多越好，这里有的4个OSD节点，分别再每节点添加两块硬盘，分别是40GB和 50GB，作为OSD的硬盘不需要做任何操作，需要OSD初始化的工具来回初始化。
+在ceph集群中，Administrators、Monitors、Managers和MDSs节点节点对服务器硬盘都没有要求，只要系统能正常运行即可。但OSD节点不一样，通常一个OSD就代表一块物理硬盘，作为分布式存储，OSD越多越好，这里有的4个OSD节点，分别再每节点添加两块硬盘，分别是40GB和 50GB，作为OSD的硬盘不需要做任何操作，需要OSD初始化的工具来回初始化。
 查看ceph-storage-1节点硬盘信息如下。 
     
 <pre>
