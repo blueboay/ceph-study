@@ -8,6 +8,7 @@ Ceph核心组件包括：
   * OSD
   * Monitor
   * MDS
+
 OSD：英文全称为Object Storage Device，主要功能用于数据的存储，当直接使用硬盘作为存储目标的时候，一块硬盘称之为OSD。当使用一个目录作为存储目标的时候，这个目录也称之为OSD。
 Monitor：负责监视整个Ceph集群运行Map图，维护Ceph集群的状态。还包括了集群中客户端的认证与授权。
 MDS：英文全称为Metadata Server，主要文件系统服务的元数据，对象存储和块设备存储不需要元数据服务。如果集群中使用CephFS接口，那么至少集群中至少需要部署一个MDS服务。
@@ -20,6 +21,7 @@ Librados是RADOS存储集群的API，支持常见的编程语言，如：C、C++
   * RBD
   * CephFS
   * RadosGW
+
 RBD：Rados Block Devices此客户端接口基于Librados API开发，通常用于块设备存储，如虚拟机硬盘。支持快照功能。
 RadosGW：此客户端接口同样基于Librados API开发，是一个基于HTTP Restful风格的接口。
 CephFS：此客户端原生的支持，通常文件系统存储的操作使用CephFS客户端。如：NFS挂载。 
