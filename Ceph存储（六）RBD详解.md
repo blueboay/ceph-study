@@ -409,8 +409,7 @@ client.kvm代表Ceph集群的用户，type为ceph表示用户类型为Ceph用户
 系统安装完成后将disk设置为开机引导项即可，删除cdrom的<disk/>块即可。可再使用一份新的配置文件重新定义一台虚拟机，如。
 
 <pre>
-<!--
-<domain type='kvm'>
+<!--<domain type='kvm'>
   <name>CentOS7-RBD</name>
   <memory unit='KiB'>1048576</memory>
   <vcpu placement='static'>1</vcpu>
@@ -436,6 +435,5 @@ client.kvm代表Ceph集群的用户，type为ceph表示用户类型为Ceph用户
       <listen type='address' address='0.0.0.0'/>
     </graphics>
   </devices>
-</domain>
--->
+</domain>-->
 </pre>
