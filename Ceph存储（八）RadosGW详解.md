@@ -73,6 +73,7 @@ rgw_frontends = "civetweb port=80+443s ssl_certificate=/etc/ceph/civetweb.pem nu
 5.  验证，如果是http+https那么两个协议都可以访问，正常返回结果如下。
 
 [![](http://121.43.168.35/wp-content/uploads/2019/05/375R9NDV7OZB50RZ4.png)](https://www.linux-note.cn/wp-content/uploads/2019/05/375R9NDV7OZB50RZ4.png)
+
 [![](http://121.43.168.35/wp-content/uploads/2019/05/I9NR2AY7K1ZRJRC24W.png)](https://www.linux-note.cn/wp-content/uploads/2019/05/I9NR2AY7K1ZRJRC24W.png)
 ### 配置泛域名解析
 通常每个对象都是存储在特定的存储桶之中，而每个对象都要直接通过REST API基于URL进行访问，URL的格式为： http(s)://bucket-name.domain-name:port/path/to/object。以本实验为例，如果bucket-name名称为test，而对象的路径为/image/1.jpg，那么URL为：https://test.oss.gogen.cn/image/1.jpg 
