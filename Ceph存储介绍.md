@@ -1,17 +1,3 @@
-title: Ceph存储（一）介绍
-link: https://www.linux-note.cn/?p=79
-author: admin
-description: 
-post_id: 79
-created: 2019/05/17 15:02:49
-created_gmt: 2019/05/17 07:02:49
-comment_status: open
-post_name: ceph%e5%ad%98%e5%82%a8%e4%bb%8b%e7%bb%8d
-status: publish
-post_type: post
-
-<!--本文主要介绍Ceph存储的一些术语与组件相关信息，在开始学习Ceph之前，这将是最先需要学习的内容。主要包括Ceph组件介绍，Rados存储信息介绍，Librados介绍。还有什是PG，Pool，FileStor与BlueStore等内容。-->
-
 # Ceph存储（一）介绍
 
 ### Ceph存储简介
