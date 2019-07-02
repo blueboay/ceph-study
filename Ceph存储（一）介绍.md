@@ -25,7 +25,7 @@ Librados是RADOS存储集群的API，支持常见的编程语言，如：C、C++
 RBD：Rados Block Devices此客户端接口基于Librados API开发，通常用于块设备存储，如虚拟机硬盘。支持快照功能。
 RadosGW：此客户端接口同样基于Librados API开发，是一个基于HTTP Restful风格的接口。
 CephFS：此客户端原生的支持，通常文件系统存储的操作使用CephFS客户端。如：NFS挂载。 
-[![](http://121.43.168.35/wp-content/uploads/2019/05/1.png)](https://www.linux-note.cn/wp-content/uploads/2019/05/1.png)Rados集群支持的客户端
+[![](http://121.43.168.35/wp-content/uploads/2019/05/1.png)](https://www.linux-note.cn/wp-content/uploads/2019/05/1.png)
 ### 管理节点
 Ceph常用管理接口通常都是命令行工具，如rados、ceph、rbd等命令，另外Ceph还有可以有一个专用的管理节点，在此节点上面部署专用的管理工具来实现近乎集群的一些管理工作，如集群部署，集群组件管理等。
 ### Pool与PG
