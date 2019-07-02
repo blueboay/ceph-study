@@ -104,13 +104,15 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 在此案例中192.168.6.0/24为业务使用，而 18.50.129.0/24为集群内部使用。 
 注意：如果一台服务器有几个网卡都配置了IP地址与网关，那么将会存在几条默认路由。正常情况下我们只需要一条默认路由，而其它不需要的路由则删除，再根据情况添加静态路由。
 ### 配置时间同步
-如果节点可以访问互联网，直接启动chronyd服务即可，CentOS  7自带此服务。
-    
-    <pre>~]# systemctl enable chronyd && systemctl start chronyd</pre>
+如果节点可以访问互联网，直接启动chronyd服务即可，CentOS  7自带此服务。 
+<pre>
+~]# systemctl enable chronyd && systemctl start chronyd
+</pre>
 注意：如果是CentOS 6系统，默认不使用chronyd时间同步服务。 
 一般推荐使用本地的时间服务器，修改/etc/chrony.conf配置文件，将server后配置修改为指定时间服务器地址即可，如果有多个，指定多个server即可，server后面跟时间服务器的地址，如。 
-    
-    <pre>server 0.centos.pool.ntp.org iburst</pre>
+<pre>
+server 0.centos.pool.ntp.org iburst
+</pre>
 可以使用以下命令可以查看时间同步的信息。 
     
     <pre>~]# chronyc sources -v</pre>
