@@ -62,7 +62,8 @@
 在ceph集群中。Administrators、Monitors、Managers和MDSs节点节点对服务器硬盘都没有要求，只要系统能正常运行即可。但OSD节点不一样，通常一个OSD就代表一块物理硬盘，作为分布式存储，OSD越多越好，这里有的4个OSD节点，分别再每节点添加两块硬盘，分别是40GB和 50GB，作为OSD的硬盘不需要做任何操作，需要OSD初始化的工具来回初始化。
 查看ceph-storage-1节点硬盘信息如下。 
     
-    ```[root@ceph-storage-1 ~]# fdisk -l /dev/sd*
+    ```
+    [root@ceph-storage-1 ~]# fdisk -l /dev/sd*
     
     Disk /dev/sda: 21.5 GB, 21474836480 bytes, 41943040 sectors
     Units = sectors of 1 * 512 = 512 bytes
@@ -96,7 +97,8 @@
     Disk /dev/sdc: 53.7 GB, 53687091200 bytes, 104857600 sectors
     Units = sectors of 1 * 512 = 512 bytes
     Sector size (logical/physical): 512 bytes / 512 bytes
-    I/O size (minimum/optimal): 512 bytes / 512 bytes```
+    I/O size (minimum/optimal): 512 bytes / 512 bytes
+    ```
 ### 网络说明
 部署Ceph集群推荐所有节点都有两张网卡，一张用于外部通讯，承载业务数据流量，另外一张用于集群内部了数据交换。防止在进行内部数据交换的时候占用业务通道，影响业务通讯。
 在此案例中192.168.6.0/24为业务使用，而 18.50.129.0/24为集群内部使用。 
@@ -115,7 +117,8 @@
 ### 配置主机名解析
 本所本案例，在每个节点都配置此hosts，文件内容如下。 
     
-    ```127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+    ```
+    127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
     ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
     192.168.6.114 ceph-admin.gogen.cn ceph-admin
     192.168.6.115 ceph-storage-1.gogen.cn ceph-storage-1
@@ -124,7 +127,8 @@
     192.168.6.118 ceph-storage-4.gogen.cn ceph-storage-4
     192.168.6.126 ceph-monitor-1.gogen.cn ceph-monitor-1
     192.168.6.127 ceph-monitor-2.gogen.cn ceph-monitor-2
-    192.168.6.128 ceph-monitor-3.gogen.cn ceph-monitor-3```
+    192.168.6.128 ceph-monitor-3.gogen.cn ceph-monitor-3
+    ```
 ### 关闭防火墙
 为防止防火墙的干扰，推荐将防火墙关闭，操作如下。 
     
