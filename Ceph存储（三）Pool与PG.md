@@ -355,7 +355,7 @@ rule replicated_rule {
 关于buckets定义格式如下。
 
 <pre>
-<bucket name> <name> {
+&lt;bucket name&gt; &lt;name&gt; {
 ……
 }
 
