@@ -42,7 +42,7 @@ RadosGW：此客户端接口同样基于Librados API开发，是一个基于HTTP
 
 CephFS：此客户端原生的支持，通常文件系统存储的操作使用CephFS客户端。如：NFS挂载。 
 
-![](http://121.43.168.35/wp-content/uploads/2019/05/1.png)Rados集群支持的客户端
+![](http://121.43.168.35/wp-content/uploads/2019/05/1.png)
 
 ### 管理节点
 
