@@ -290,19 +290,19 @@ auth_client_required = cephx
 <pre>
 [cephadmin@ceph-monitor-1 root]$ ceph -s
   cluster:
-	id: 7e1c1695-1b01-4151-beea-70c008cffd8c
-	health: HEALTH_OK
+    id: 7e1c1695-1b01-4151-beea-70c008cffd8c
+    health: HEALTH_OK
  
   services:
-	mon: 1 daemons, quorum ceph-monitor-1
-	mgr: ceph-monitor-1(active)
-	osd: 0 osds: 0 up, 0 in
+    mon: 1 daemons, quorum ceph-monitor-1
+    mgr: ceph-monitor-1(active)
+    osd: 0 osds: 0 up, 0 in
  
   data:
-	pools:   0 pools, 0 pgs
-	objects: 0  objects, 0 B
-	usage:   0 B used, 0 B / 0 B avail
-	pgs:
+    pools:   0 pools, 0 pgs
+    objects: 0  objects, 0 B
+    usage:   0 B used, 0 B / 0 B avail
+    pgs:
 
 </pre>
   * cluster：集群相关，其中health表示集群的健康状态，id为集群的ID。
@@ -347,19 +347,19 @@ auth_client_required = cephx
 <pre>
 [cephadmin@ceph-monitor-1 ~]$ ceph -s
   cluster:
-	id: 7e1c1695-1b01-4151-beea-70c008cffd8c
-	health: HEALTH_OK
+    id: 7e1c1695-1b01-4151-beea-70c008cffd8c
+    health: HEALTH_OK
  
   services:
-	mon: 1 daemons, quorum ceph-monitor-1
-	mgr: ceph-monitor-1(active)
-	osd: 8 osds: 8 up, 8 in
+    mon: 1 daemons, quorum ceph-monitor-1
+    mgr: ceph-monitor-1(active)
+    osd: 8 osds: 8 up, 8 in
  
   data:
-	pools:   0 pools, 0 pgs
-	objects: 0  objects, 0 B
-	usage:   8.0 GiB used, 352 GiB / 360 GiB avail
-	pgs:
+    pools:   0 pools, 0 pgs
+    objects: 0  objects, 0 B
+    usage:   8.0 GiB used, 352 GiB / 360 GiB avail
+   pgs:
 
 </pre>
 从上面可以看出总共有8个OSD，并且8个已就绪，总空间为360GB，已使用8GB，每个OSD默认会使用1GB的空间。
@@ -439,19 +439,19 @@ monitor作为Ceph集群中重要组件之一，Ceph集群一般部署3个以上�
 <pre>
 [cephadmin@ceph-monitor-1 ~]$ ceph -s
   cluster:
-	id: 7e1c1695-1b01-4151-beea-70c008cffd8c
-	health: HEALTH_OK
+    id: 7e1c1695-1b01-4151-beea-70c008cffd8c
+    health: HEALTH_OK
  
   services:
-	mon: 3 daemons, quorum ceph-monitor-1,ceph-monitor-2,ceph-monitor-3
-	mgr: ceph-monitor-1(active)
-	osd: 7 osds: 7 up, 7 in
+    mon: 3 daemons, quorum ceph-monitor-1,ceph-monitor-2,ceph-monitor-3
+    mgr: ceph-monitor-1(active)
+    osd: 7 osds: 7 up, 7 in
  
   data:
-	pools:   0 pools, 0 pgs
-	objects: 0  objects, 0 B
-	usage:   7.0 GiB used, 313 GiB / 320 GiB avail
-	pgs:
+    pools:   0 pools, 0 pgs
+    objects: 0  objects, 0 B
+    usage:   7.0 GiB used, 313 GiB / 320 GiB avail
+    pgs:
 
 </pre>
 还可以使用quorum_status子命令查看monitor更详细的信息。
@@ -472,19 +472,19 @@ manager节点以守护进程Active和Standby模式运行，当Active节点上面
 <pre>
 [cephadmin@ceph-monitor-1 ~]$ ceph -s
   cluster:
-	id: 7e1c1695-1b01-4151-beea-70c008cffd8c
-	health: HEALTH_OK
+    id: 7e1c1695-1b01-4151-beea-70c008cffd8c
+    health: HEALTH_OK
  
   services:
-	mon: 3 daemons, quorum ceph-monitor-1,ceph-monitor-2,ceph-monitor-3
-	mgr: ceph-monitor-1(active), standbys: ceph-monitor-2
-	osd: 7 osds: 7 up, 7 in
+    mon: 3 daemons, quorum ceph-monitor-1,ceph-monitor-2,ceph-monitor-3
+    mgr: ceph-monitor-1(active), standbys: ceph-monitor-2
+    osd: 7 osds: 7 up, 7 in
  
   data:
-	pools:   0 pools, 0 pgs
-	objects: 0  objects, 0 B
-	usage:   7.0 GiB used, 313 GiB / 320 GiB avail
-	pgs:
+    pools:   0 pools, 0 pgs
+    objects: 0  objects, 0 B
+    usage:   7.0 GiB used, 313 GiB / 320 GiB avail
+    pgs:
 
 </pre>
 ### 移除monitor节点
@@ -587,20 +587,20 @@ default.rgw.log
 <pre>
 [cephadmin@ceph-monitor-1 ~]$ ceph -s
   cluster:
-	id: 7e1c1695-1b01-4151-beea-70c008cffd8c
-	health: HEALTH_OK
+    id: 7e1c1695-1b01-4151-beea-70c008cffd8c
+    health: HEALTH_OK
  
   services:
-	mon: 3 daemons, quorum ceph-monitor-1,ceph-monitor-2,ceph-monitor-3
-	mgr: ceph-monitor-2(active), standbys: ceph-monitor-1
-	osd: 7 osds: 7 up, 7 in
-	rgw: 1 daemon active
+    mon: 3 daemons, quorum ceph-monitor-1,ceph-monitor-2,ceph-monitor-3
+    mgr: ceph-monitor-2(active), standbys: ceph-monitor-1
+    osd: 7 osds: 7 up, 7 in
+    rgw: 1 daemon active
  
   data:
-	pools:   6 pools, 96 pgs
-	objects: 224  objects, 1.8 KiB
-	usage:   7.1 GiB used, 313 GiB / 320 GiB avail
-	pgs: 96 active+clean
+    pools:   6 pools, 96 pgs
+    objects: 224  objects, 1.8 KiB
+    usage:   7.1 GiB used, 313 GiB / 320 GiB avail
+    pgs: 96 active+clean
 </pre>
 3.  默认情况下rgw监听7480号端口，在创建完成后日志有会显示。这时候访问该节点的rgw端口，打开如下图所示，说明部署成功。
 [![](http://121.43.168.35/wp-content/uploads/2019/05/1-1.png)](https://www.linux-note.cn/wp-content/uploads/2019/05/1-1.png)
