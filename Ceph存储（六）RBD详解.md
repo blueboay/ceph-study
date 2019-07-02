@@ -279,11 +279,11 @@ trash move代表将镜像移动到回收站，还可以使用list查看回收站
 1.   创建一个xml文件，文件名称随意，内容如下。
 
 <pre>
-<secret ephemeral='no' private='no'>
-  <usage type='ceph'>
-    <name>client.kvm secret</name>
-  </usage>
-</secret>
+&lt;secret ephemeral='no' private='no'&gt;
+  &lt;usage type='ceph'&gt;
+    &lt;name&gt;client.kvm secret&lt;/name&gt;
+  &lt;/usage&gt;
+&lt;/secret&gt;
 </pre>
 client.kvm代表Ceph集群的用户，type为ceph表示用户类型为Ceph用户。 
 2.  将创建的xml文件转换为Secret。
@@ -342,54 +342,54 @@ client.kvm代表Ceph集群的用户，type为ceph表示用户类型为Ceph用户
 7.  将新配置文件修改如下，前面的2到6步操作主要是为了演示配置文件的由来，如果在实验的情况下，此配置文件可直接根据自己的信息修改后使用。
 
 <pre>
-<domain type='kvm'>
-  <name>CentOS7-RBD</name>
-  <memory unit='KiB'>1048576</memory>
-  <vcpu placement='static'>1</vcpu>
-  <os>
-    <type arch='x86_64'>hvm</type>
-    <boot dev="cdrom"/>
-  </os>
-  <devices>
-    <emulator>/usr/libexec/qemu-kvm</emulator>
-    <disk type='network' device='disk'>
-      <source protocol='rbd' name='kvm/img1'>
-        <host name='192.168.6.126,192.168.6.127,192.168.6.128' port='6789'/>
-      </source>
-     <auth username='osd-mount'>
-       <secret type='ceph' uuid='6c5a16cc-7b16-4bdc-be85-d9d664b14570'/>
-     </auth>
-     <target dev='vda' bus='virtio'/>
-    </disk>
-    <disk type='file' device='cdrom'>
-      <driver name='qemu' type='raw'/>
-      <target dev='hda' bus='ide'/>
-      <source file='/opt/CentOS-7-x86_64-Minimal-1810.iso'/>
-      <readonly/>
-    </disk>
-    <interface type='network'>
-      <source network='default'/>
-      <model type='virtio'/>
-    </interface>
-    <graphics type='vnc' port='-1' autoport='yes' listen='0.0.0.0'>
-      <listen type='address' address='0.0.0.0'/>
-    </graphics>
-  </devices>
-</domain>
+&lt;domain type='kvm'&gt;
+  &lt;name&gt;CentOS7-RBD&lt;/name&gt;
+  &lt;memory unit='KiB'&gt;1048576&lt;/memory&gt;
+  &lt;vcpu placement='static'&gt;1&lt;/vcpu&gt;
+  &lt;os&gt;
+    &lt;type arch='x86_64'&gt;hvm&lt;/type&gt;
+    &lt;boot dev="cdrom"/&gt;
+  &lt;/os&gt;
+  &lt;devices&gt;
+    &lt;emulator&gt;/usr/libexec/qemu-kvm&lt;/emulator&gt;
+    &lt;disk type='network' device='disk'&gt;
+      &lt;source protocol='rbd' name='kvm/img1'&gt;
+        &lt;host name='192.168.6.126,192.168.6.127,192.168.6.128' port='6789'/&gt;
+      &lt;/source&gt;
+     &lt;auth username='osd-mount'&gt;
+       &lt;secret type='ceph' uuid='6c5a16cc-7b16-4bdc-be85-d9d664b14570'/&gt;
+     &lt;/auth&gt;
+     &lt;target dev='vda' bus='virtio'/&gt;
+    &lt;/disk&gt;
+    &lt;disk type='file' device='cdrom'&gt;
+      &lt;driver name='qemu' type='raw'/&gt;
+      &lt;target dev='hda' bus='ide'/&gt;
+      &lt;source file='/opt/CentOS-7-x86_64-Minimal-1810.iso'/&gt;
+      &lt;readonly/&gt;
+    &lt;/disk&gt;
+    &lt;interface type='network'&gt;
+      &lt;source network='default'/&gt;
+      &lt;model type='virtio'/&gt;
+    &lt;/interface&gt;
+    &lt;graphics type='vnc' port='-1' autoport='yes' listen='0.0.0.0'&gt;
+      &lt;listen type='address' address='0.0.0.0'/&gt;
+    &lt;/graphics&gt;
+  &lt;/devices&gt;
+&lt;/domain&gt;
 </pre>
 将配置文件必须的部分保留，注意更改了最上面的<name/>，删除了<mac/>与虚拟机<uuid/>相关的配置。在<os/>内指定了引导启动设备为cdrom，并且在<disk/>内指定了cdrom相关的配置。
 主要配置为<disk/>，有两个<disk/>配置，一个为ISO镜像的配置，另一个配置如下。
 
 <pre>
-<disk type='network' device='disk'>
-  <source protocol='rbd' name='kvm/img1'>
-    <host name='192.168.6.126,192.168.6.127,192.168.6.128' port='6789'/>
-  </source>
- <auth username='osd-mount'>
-   <secret type='ceph' uuid='6c5a16cc-7b16-4bdc-be85-d9d664b14570'/>
- </auth>
- <target dev='vda' bus='virtio'/>
-</disk>
+&lt;disk type='network' device='disk'&gt;
+  &lt;source protocol='rbd' name='kvm/img1'&gt;
+    &lt;host name='192.168.6.126,192.168.6.127,192.168.6.128' port='6789'/&gt;
+  &lt;/source&gt;
+ &lt;auth username='osd-mount'&gt;
+   &lt;secret type='ceph' uuid='6c5a16cc-7b16-4bdc-be85-d9d664b14570'/&gt;
+ &lt;/auth&gt;
+ &lt;target dev='vda' bus='virtio'/&gt;
+&lt;/disk&gt;
 </pre>
   * type：指定磁盘从网络获取。
   * <source/>：指定源协议为rbd，镜像名为kvm/img1。相当于<pool name>/<image name>。
@@ -409,31 +409,31 @@ client.kvm代表Ceph集群的用户，type为ceph表示用户类型为Ceph用户
 系统安装完成后将disk设置为开机引导项即可，删除cdrom的<disk/>块即可。可再使用一份新的配置文件重新定义一台虚拟机，如。
 
 <pre>
-<!--<domain type='kvm'>
-  <name>CentOS7-RBD</name>
-  <memory unit='KiB'>1048576</memory>
-  <vcpu placement='static'>1</vcpu>
-  <os>
-    <type arch='x86_64'>hvm</type>
-  </os>
-  <devices>
-    <emulator>/usr/libexec/qemu-kvm</emulator>
-    <disk type='network' device='disk'>
-      <source protocol='rbd' name='kvm/img1'>
-        <host name='192.168.6.126,192.168.6.127,192.168.6.128' port='6789'/>
-      </source>
-     <auth username='osd-mount'>
-       <secret type='ceph' uuid='6c5a16cc-7b16-4bdc-be85-d9d664b14570'/>
-     </auth>
-     <target dev='vda' bus='virtio'/>
-    </disk>
-    <interface type='network'>
-      <source network='default'/>
-      <model type='virtio'/>
-    </interface>
-    <graphics type='vnc' port='-1' autoport='yes' listen='0.0.0.0'>
-      <listen type='address' address='0.0.0.0'/>
-    </graphics>
-  </devices>
-</domain>-->
+&lt;domain type='kvm'&gt;
+  &lt;name&gt;CentOS7-RBD&lt;/name&gt;
+  &lt;memory unit='KiB'&gt;1048576&lt;/memory&gt;
+  &lt;vcpu placement='static'&gt;1&lt;/vcpu&gt;
+  &lt;os&gt;
+    &lt;type arch='x86_64'&gt;hvm&lt;/type&gt;
+  &lt;/os&gt;
+  &lt;devices&gt;
+    &lt;emulator&gt;/usr/libexec/qemu-kvm&lt;/emulator&gt;
+    &lt;disk type='network' device='disk'&gt;
+      &lt;source protocol='rbd' name='kvm/img1'&gt;
+        &lt;host name='192.168.6.126,192.168.6.127,192.168.6.128' port='6789'/&gt;
+      &lt;/source&gt;
+     &lt;auth username='osd-mount'&gt;
+       &lt;secret type='ceph' uuid='6c5a16cc-7b16-4bdc-be85-d9d664b14570'/&gt;
+     &lt;/auth&gt;
+     &lt;target dev='vda' bus='virtio'/&gt;
+    &lt;/disk&gt;
+    &lt;interface type='network'&gt;
+      &lt;source network='default'/&gt;
+      &lt;model type='virtio'/&gt;
+    &lt;/interface&gt;
+    &lt;graphics type='vnc' port='-1' autoport='yes' listen='0.0.0.0'&gt;
+      &lt;listen type='address' address='0.0.0.0'/&gt;
+    &lt;/graphics&gt;
+  &lt;/devices&gt;
+&lt;/domain&gt;
 </pre>
