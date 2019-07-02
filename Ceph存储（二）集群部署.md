@@ -63,41 +63,41 @@
 查看ceph-storage-1节点硬盘信息如下。 
     
 <pre>
-    [root@ceph-storage-1 ~]# fdisk -l /dev/sd*
-    
-    Disk /dev/sda: 21.5 GB, 21474836480 bytes, 41943040 sectors
-    Units = sectors of 1 * 512 = 512 bytes
-    Sector size (logical/physical): 512 bytes / 512 bytes
-    I/O size (minimum/optimal): 512 bytes / 512 bytes
-    Disk label type: dos
-    Disk identifier: 0x00024e19
-    
-       Device Boot      Start         End      Blocks   Id  System
-    /dev/sda1   *        2048     2099199     1048576   83  Linux
-    /dev/sda2         2099200    41943039    19921920   8e  Linux LVM
-    
-    Disk /dev/sda1: 1073 MB, 1073741824 bytes, 2097152 sectors
-    Units = sectors of 1 * 512 = 512 bytes
-    Sector size (logical/physical): 512 bytes / 512 bytes
-    I/O size (minimum/optimal): 512 bytes / 512 bytes
-    
-    
-    Disk /dev/sda2: 20.4 GB, 20400046080 bytes, 39843840 sectors
-    Units = sectors of 1 * 512 = 512 bytes
-    Sector size (logical/physical): 512 bytes / 512 bytes
-    I/O size (minimum/optimal): 512 bytes / 512 bytes
-    
-    
-    Disk /dev/sdb: 42.9 GB, 42949672960 bytes, 83886080 sectors
-    Units = sectors of 1 * 512 = 512 bytes
-    Sector size (logical/physical): 512 bytes / 512 bytes
-    I/O size (minimum/optimal): 512 bytes / 512 bytes
-    
-    
-    Disk /dev/sdc: 53.7 GB, 53687091200 bytes, 104857600 sectors
-    Units = sectors of 1 * 512 = 512 bytes
-    Sector size (logical/physical): 512 bytes / 512 bytes
-    I/O size (minimum/optimal): 512 bytes / 512 bytes
+[root@ceph-storage-1 ~]# fdisk -l /dev/sd*
+
+Disk /dev/sda: 21.5 GB, 21474836480 bytes, 41943040 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x00024e19
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        2048     2099199     1048576   83  Linux
+/dev/sda2         2099200    41943039    19921920   8e  Linux LVM
+
+Disk /dev/sda1: 1073 MB, 1073741824 bytes, 2097152 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+
+Disk /dev/sda2: 20.4 GB, 20400046080 bytes, 39843840 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+
+Disk /dev/sdb: 42.9 GB, 42949672960 bytes, 83886080 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+
+Disk /dev/sdc: 53.7 GB, 53687091200 bytes, 104857600 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
 </pre>
 ### 网络说明
 部署Ceph集群推荐所有节点都有两张网卡，一张用于外部通讯，承载业务数据流量，另外一张用于集群内部了数据交换。防止在进行内部数据交换的时候占用业务通道，影响业务通讯。
