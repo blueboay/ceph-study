@@ -31,6 +31,7 @@
 ~]$ ceph dashboard set-login-credentials admin 123456
 </pre>
 用户名为admin，密码为123456。
+
 6.   登录，访问任何一个mgr节点上面的8443即可，如图所示。
 
 [![](http://121.43.168.35/wp-content/uploads/2019/05/M1LKCTS4YSOKZMUV@J-1024x557.png)](https://www.linux-note.cn/wp-content/uploads/2019/05/M1LKCTS4YSOKZMUV@J.png)
