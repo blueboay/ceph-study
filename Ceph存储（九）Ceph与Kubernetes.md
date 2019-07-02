@@ -37,23 +37,23 @@ metadata:
 spec:
   containers:
   - image: nginx
-name:  test
-volumeMounts:
-- name: rbd-image
-  mountPath: /data
+    name:  test
+    volumeMounts:
+    - name: rbd-image
+      mountPath: /data
   volumes:
   - name: rbd-image
-rbd:
-  monitors:
-  - "192.168.6.126:6789"
-  - "192.168.6.127:6789"
-  - "192.168.6.128:6789"
-  pool: kvm
-  image: k8s-test01
-  fsType: ext4
-  readOnly: false
-  user: osd-mount
-  keyring: /etc/ceph/ceph.client.osd-mount.keyring
+    rbd:
+      monitors:
+      - "192.168.6.126:6789"
+      - "192.168.6.127:6789"
+      - "192.168.6.128:6789"
+      pool: kvm
+      image: k8s-test01
+      fsType: ext4
+      readOnly: false
+      user: osd-mount
+      keyring: /etc/ceph/ceph.client.osd-mount.keyring
 </pre>
   * monitors：指定mon节点的地址与端口，最好使用域名，默认monitor监听6789号端口。
   * pool：指定存储池名称。
@@ -116,24 +116,24 @@ metadata:
 spec:
   containers:
   - image: nginx
-name:  test
-volumeMounts:
-- name: rbd-image
-  mountPath: /data
+    name:  test
+    volumeMounts:
+    - name: rbd-image
+      mountPath: /data
   volumes:
   - name: rbd-image
-rbd:
-  monitors:
-  - "192.168.6.126:6789"
-  - "192.168.6.127:6789"
-  - "192.168.6.128:6789"
-  pool: kvm
-  image: k8s-test01
-  fsType: ext4
-  readOnly: false
-  user: osd-mount
-  secretRef:
-name:  osd-mount-secret
+    rbd:
+      monitors:
+      - "192.168.6.126:6789"
+      - "192.168.6.127:6789"
+      - "192.168.6.128:6789"
+      pool: kvm
+      image: k8s-test01
+      fsType: ext4
+      readOnly: false
+      user: osd-mount
+      secretRef:
+        name:  osd-mount-secret
 </pre>
 在最后使用secretRef指定加载对应的secret。
 ## 通过StorageClass使用
@@ -174,7 +174,7 @@ kind: StorageClass
 metadata:
   name: rbd
   annotations:
-storageclass.beta.kubernetes.io/os-default-class: "true"
+    storageclass.beta.kubernetes.io/os-default-class: "true"
 provisioner: ceph.com/rbd
 parameters:
   monitors: 192.168.6.126:6789,192.168.6.127:6789,192.168.6.128:6789
@@ -211,10 +211,10 @@ metadata:
 spec:
   storageClassName: rbd
   accessModes:
-- ReadWriteOnce
+    - ReadWriteOnce
   resources:
-requests:
-  storage: 5Gi
+    requests:
+      storage: 5Gi
 </pre>
 apply成功后，会动态的申请一块rbd镜像。ceph集群中查看。会申请一块5GB大小的RBD镜像。
 7.  配置pod使用pvc。
@@ -227,13 +227,13 @@ metadata:
 spec:
   containers:
   - image: nginx
-name:  test
-volumeMounts:
-- name: rbd-image
-  mountPath: /data
+    name:  test
+    volumeMounts:
+    - name: rbd-image
+      mountPath: /data
   volumes:
   - name: rbd-image
-persistentVolumeClaim:
-  claimName: rbd-claim01
+    persistentVolumeClaim:
+      claimName: rbd-claim01
 </pre>
 只需要指定pvc的名称即可，空间扩容与《[容器直接挂载使用](https://www.linux-note.cn/?p=152#i-2)》方法一样。 
