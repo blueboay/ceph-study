@@ -281,7 +281,7 @@ trash move代表将镜像移动到回收站，还可以使用list查看回收站
 <pre>
 <secret ephemeral='no' private='no'>
   <usage type='ceph'>
-<name>client.kvm secret</name>
+    <name>client.kvm secret</name>
   </usage>
 </secret>
 </pre>
@@ -347,33 +347,33 @@ client.kvm代表Ceph集群的用户，type为ceph表示用户类型为Ceph用户
   <memory unit='KiB'>1048576</memory>
   <vcpu placement='static'>1</vcpu>
   <os>
-<type arch='x86_64'>hvm</type>
-<boot dev="cdrom"/>
+    <type arch='x86_64'>hvm</type>
+    <boot dev="cdrom"/>
   </os>
   <devices>
-<emulator>/usr/libexec/qemu-kvm</emulator>
-<disk type='network' device='disk'>
-  <source protocol='rbd' name='kvm/img1'>
-<host name='192.168.6.126,192.168.6.127,192.168.6.128' port='6789'/>
-  </source>
- <auth username='osd-mount'>
-   <secret type='ceph' uuid='6c5a16cc-7b16-4bdc-be85-d9d664b14570'/>
- </auth>
- <target dev='vda' bus='virtio'/>
-</disk>
-<disk type='file' device='cdrom'>
-  <driver name='qemu' type='raw'/>
-  <target dev='hda' bus='ide'/>
-  <source file='/opt/CentOS-7-x86_64-Minimal-1810.iso'/>
-  <readonly/>
-</disk>
-<interface type='network'>
-  <source network='default'/>
-  <model type='virtio'/>
-</interface>
-<graphics type='vnc' port='-1' autoport='yes' listen='0.0.0.0'>
-  <listen type='address' address='0.0.0.0'/>
-</graphics>
+    <emulator>/usr/libexec/qemu-kvm</emulator>
+    <disk type='network' device='disk'>
+      <source protocol='rbd' name='kvm/img1'>
+        <host name='192.168.6.126,192.168.6.127,192.168.6.128' port='6789'/>
+      </source>
+     <auth username='osd-mount'>
+       <secret type='ceph' uuid='6c5a16cc-7b16-4bdc-be85-d9d664b14570'/>
+     </auth>
+     <target dev='vda' bus='virtio'/>
+    </disk>
+    <disk type='file' device='cdrom'>
+      <driver name='qemu' type='raw'/>
+      <target dev='hda' bus='ide'/>
+      <source file='/opt/CentOS-7-x86_64-Minimal-1810.iso'/>
+      <readonly/>
+    </disk>
+    <interface type='network'>
+      <source network='default'/>
+      <model type='virtio'/>
+    </interface>
+    <graphics type='vnc' port='-1' autoport='yes' listen='0.0.0.0'>
+      <listen type='address' address='0.0.0.0'/>
+    </graphics>
   </devices>
 </domain>
 </pre>
@@ -383,7 +383,7 @@ client.kvm代表Ceph集群的用户，type为ceph表示用户类型为Ceph用户
 <pre>
 <disk type='network' device='disk'>
   <source protocol='rbd' name='kvm/img1'>
-<host name='192.168.6.126,192.168.6.127,192.168.6.128' port='6789'/>
+    <host name='192.168.6.126,192.168.6.127,192.168.6.128' port='6789'/>
   </source>
  <auth username='osd-mount'>
    <secret type='ceph' uuid='6c5a16cc-7b16-4bdc-be85-d9d664b14570'/>
@@ -414,26 +414,26 @@ client.kvm代表Ceph集群的用户，type为ceph表示用户类型为Ceph用户
   <memory unit='KiB'>1048576</memory>
   <vcpu placement='static'>1</vcpu>
   <os>
-<type arch='x86_64'>hvm</type>
+    <type arch='x86_64'>hvm</type>
   </os>
   <devices>
-<emulator>/usr/libexec/qemu-kvm</emulator>
-<disk type='network' device='disk'>
-  <source protocol='rbd' name='kvm/img1'>
-<host name='192.168.6.126,192.168.6.127,192.168.6.128' port='6789'/>
-  </source>
- <auth username='osd-mount'>
-   <secret type='ceph' uuid='6c5a16cc-7b16-4bdc-be85-d9d664b14570'/>
- </auth>
- <target dev='vda' bus='virtio'/>
-</disk>
-<interface type='network'>
-  <source network='default'/>
-  <model type='virtio'/>
-</interface>
-<graphics type='vnc' port='-1' autoport='yes' listen='0.0.0.0'>
-  <listen type='address' address='0.0.0.0'/>
-</graphics>
+    <emulator>/usr/libexec/qemu-kvm</emulator>
+    <disk type='network' device='disk'>
+      <source protocol='rbd' name='kvm/img1'>
+        <host name='192.168.6.126,192.168.6.127,192.168.6.128' port='6789'/>
+      </source>
+     <auth username='osd-mount'>
+       <secret type='ceph' uuid='6c5a16cc-7b16-4bdc-be85-d9d664b14570'/>
+     </auth>
+     <target dev='vda' bus='virtio'/>
+    </disk>
+    <interface type='network'>
+      <source network='default'/>
+      <model type='virtio'/>
+    </interface>
+    <graphics type='vnc' port='-1' autoport='yes' listen='0.0.0.0'>
+      <listen type='address' address='0.0.0.0'/>
+    </graphics>
   </devices>
 </domain>
 </pre>
