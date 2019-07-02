@@ -58,10 +58,10 @@
 </td>
 <td >monitor 
 </td></tr></tbody></table>
+
 ### 硬盘说明
 在ceph集群中，Administrators、Monitors、Managers和MDSs节点节点对服务器硬盘都没有要求，只要系统能正常运行即可。但OSD节点不一样，通常一个OSD就代表一块物理硬盘，作为分布式存储，OSD越多越好，这里有的4个OSD节点，分别再每节点添加两块硬盘，分别是40GB和 50GB，作为OSD的硬盘不需要做任何操作，需要OSD初始化的工具来回初始化。
 查看ceph-storage-1节点硬盘信息如下。 
-    
 <pre>
 [root@ceph-storage-1 ~]# fdisk -l /dev/sd*
 
@@ -114,25 +114,29 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 server 0.centos.pool.ntp.org iburst
 </pre>
 可以使用以下命令可以查看时间同步的信息。 
-    
-    <pre>~]# chronyc sources -v</pre>
+<pre>
+~]# chronyc sources -v
+</pre>
 ### 配置主机名解析
-本所本案例，在每个节点都配置此hosts，文件内容如下。 
-    
-    <pre>127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
-    ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
-    192.168.6.114 ceph-admin.gogen.cn ceph-admin
-    192.168.6.115 ceph-storage-1.gogen.cn ceph-storage-1
-    192.168.6.116 ceph-storage-2.gogen.cn ceph-storage-2
-    192.168.6.117 ceph-storage-3.gogen.cn ceph-storage-3
-    192.168.6.118 ceph-storage-4.gogen.cn ceph-storage-4
-    192.168.6.126 ceph-monitor-1.gogen.cn ceph-monitor-1
-    192.168.6.127 ceph-monitor-2.gogen.cn ceph-monitor-2
-    192.168.6.128 ceph-monitor-3.gogen.cn ceph-monitor-3</pre>
+本所本案例，在每个节点都配置此hosts，文件内容如下。  
+<pre>
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+192.168.6.114 ceph-admin.gogen.cn ceph-admin
+192.168.6.115 ceph-storage-1.gogen.cn ceph-storage-1
+192.168.6.116 ceph-storage-2.gogen.cn ceph-storage-2
+192.168.6.117 ceph-storage-3.gogen.cn ceph-storage-3
+192.168.6.118 ceph-storage-4.gogen.cn ceph-storage-4
+192.168.6.126 ceph-monitor-1.gogen.cn ceph-monitor-1
+192.168.6.127 ceph-monitor-2.gogen.cn ceph-monitor-2
+192.168.6.128 ceph-monitor-3.gogen.cn ceph-monitor-3
+</pre>
 ### 关闭防火墙
 为防止防火墙的干扰，推荐将防火墙关闭，操作如下。 
     
-    <pre>~]# systemctl disable firewalld && systemctl stop firewalld</pre>
+<pre>
+~]# systemctl disable firewalld && systemctl stop firewalld
+</pre>
 ### 关闭SELinux
 同样为了防止SELinux干扰，默认系统是启用了SELinux，需要将此关闭。修改/etc/sysconfig/selinux文件来禁用SELinux，修改配置如下。 
     
