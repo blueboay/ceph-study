@@ -1,6 +1,6 @@
 # ceph-study
 
 
-<code>
+<pre>
 echo 123 > 123.txt
-</code>
+</pre>
