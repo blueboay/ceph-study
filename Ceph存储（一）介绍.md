@@ -25,6 +25,7 @@ Librados是RADOS存储集群的API，支持常见的编程语言，如：C、C++
 RBD：Rados Block Devices此客户端接口基于Librados API开发，通常用于块设备存储，如虚拟机硬盘。支持快照功能。
 RadosGW：此客户端接口同样基于Librados API开发，是一个基于HTTP Restful风格的接口。
 CephFS：此客户端原生的支持，通常文件系统存储的操作使用CephFS客户端。如：NFS挂载。 
+
 [![](http://121.43.168.35/wp-content/uploads/2019/05/1.png)](https://www.linux-note.cn/wp-content/uploads/2019/05/1.png)
 ### 管理节点
 Ceph常用管理接口通常都是命令行工具，如rados、ceph、rbd等命令，另外Ceph还有可以有一个专用的管理节点，在此节点上面部署专用的管理工具来实现近乎集群的一些管理工作，如集群部署，集群组件管理等。
@@ -36,4 +37,5 @@ FileStore是老版本默认使用的后端存储引擎，如果使用FileStore�
 BlueStore是一个新的后端存储引擎，可以直接管理裸硬盘，抛弃了ext4与xfs等本地文件系统。可直接对物理硬盘进行操作，同时效率也高出很多。 
 ### Object对象
 在Ceph集群中，一条数据、一个配置都为一个对象。这些都是存储在Ceph集群，以对象进行存储。每个对象应包含ID、Binary Data和Metadata。 
+
 [![](http://121.43.168.35/wp-content/uploads/2019/05/2.png)](https://www.linux-note.cn/wp-content/uploads/2019/05/2.png)
